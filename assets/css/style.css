@@ -1,0 +1,95 @@
+/* === GENEL AYARLAR === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  justify-content: space-between; /* logo solda, nav sağda */
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links li a:hover {
+  color: #007bff;
+}
+
+/* === HAMBURGER BUTONU (Mobil) === */
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === MAIN === */
+main {
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+/* === MOBİL TASARIM — max-width 768px === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* başta gizli */
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+
+  .nav-links.open {
+    display: flex; /* butona basınca gösterilecek */
+  }
+
+  .nav-toggle {
+    display: block; /* mobilde buton görünsün */
+  }
+}
