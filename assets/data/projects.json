@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Yerelize – Akıllı Seyahat ve Rehberlik Uygulaması",
+    "description": "Kullanıcının ilgi alanlarına, bütçesine ve zamanına göre kişiselleştirilmiş rota önerileri sunan, yerel esnafı ve sürdürülebilir turizmi desteklemeyi amaçlayan bir seyahat rehberliği fikri.",
+    "tags": ["Turizm Teknolojileri", "Yapay Zeka", "Mobil Uygulama Fikri"]
+  },
+  {
+    "title": "SAUCO2 – Üniversite Karbon Ayak İzi Projesi",
+    "description": "Üniversitenin fakülte ve bina bazlı enerji tüketimlerinden yola çıkarak yıllık ve aylık karbon ayak izini hesaplamayı amaçlayan veri tabanı ve raporlama projesi.",
+    "tags": ["PostgreSQL", "Veri Tabanı Tasarımı", "Sürdürülebilirlik"]
+  },
+  {
+    "title": "MedNova – Difüzyon MR'dan İnme Sınıflandırma",
+    "description": "Tıbbi görüntüler üzerinden inme zaman penceresini tahmin etmeyi hedefleyen, derin öğrenme tabanlı bir sınıflandırma projesi. Teknofest Sağlıkta Yapay Zeka yarışmasına katılım projesi.",
+    "tags": ["Yapay Zeka", "Tıbbi Görüntü İşleme", "Derin Öğrenme"]
+  },
+  {
+    "title": "Kitap Yönetim Sistemi – Veri Yapıları Projesi",
+    "description": "Stack, Queue, ağaç yapıları ve hash tablosu gibi veri yapılarının kullanıldığı, kullanıcı ve personel işlemlerini yöneten çok modüllü bir kitap yönetim sistemi.",
+    "tags": ["C++", "Veri Yapıları", "OOP"]
+  }
+]
