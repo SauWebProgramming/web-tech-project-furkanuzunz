@@ -73,49 +73,64 @@ function renderAbout() {
   `;
 }
 
-// Projelerim sayfası - JSON'dan dinamik yüklenen sürüm
+// Projelerim sayfası - Figma tarzı "My Works" görünüm
 async function renderProjects() {
-  // İlk etapta "yükleniyor" yazalım
+  // İlk yüklenirken iskelet
   appRoot.innerHTML = `
     <section class="page page-projects">
-      <h1>Projelerim</h1>
-      <p>Projeler yükleniyor...</p>
+      <h1 class="projects-title">My Works</h1>
+      <p class="projects-subtitle">
+        Üzerinde çalıştığım ve beni en çok geliştiren projelerden bazıları:
+      </p>
+
+      <div class="projects-grid" id="projects-grid">
+        <p class="projects-loading">Projeler yükleniyor...</p>
+      </div>
     </section>
   `;
 
   const projects = await loadProjects();
+  const grid = document.getElementById("projects-grid");
 
-  // Eğer hiçbir proje gelemezse
+  // Hata / boş durum
   if (!projects || projects.length === 0) {
-    appRoot.innerHTML = `
-      <section class="page page-projects">
-        <h1>Projelerim</h1>
-        <p>Şu anda gösterilecek proje bulunamadı.</p>
-      </section>
+    grid.innerHTML = `
+      <p class="projects-empty">
+        Şu anda listelenecek proje bulunamadı.
+      </p>
     `;
     return;
   }
 
-  // Kartları HTML string olarak oluştur
+ // Her proje için kart oluştur
   const cardsHtml = projects
-    .map(
-      (project) => `
-      <article class="project-card">
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
-        <p><strong>Etiketler:</strong> ${project.tags.join(", ")}</p>
-      </article>
-    `
-    )
-    .join("");
+  .map((project) => {
+    // link varsa buton, yoksa boş string
+    const buttonHtml = project.link
+      ? `<a href="${project.link}" class="project-btn" target="_blank" rel="noopener noreferrer">
+           See more →
+         </a>`
+      : "";
 
-  // Son halini sayfaya bas
-  appRoot.innerHTML = `
-    <section class="page page-projects">
-      <h1>Projelerim</h1>
-      ${cardsHtml}
-    </section>
-  `;
+    return `
+      <article class="project-card">
+        <div class="project-card-header">
+          <h2 class="project-title">${project.title}</h2>
+          <p class="project-tags">${project.tags.join(" • ")}</p>
+        </div>
+
+        <p class="project-desc">
+          ${project.description}
+        </p>
+
+        ${buttonHtml}
+      </article>
+    `;
+  })
+  .join("");
+
+
+  grid.innerHTML = cardsHtml;
 }
 
 
