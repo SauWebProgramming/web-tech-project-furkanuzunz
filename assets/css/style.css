@@ -6,26 +6,39 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f9fafb);
+  color: #111827;
   line-height: 1.6;
-  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ortak genişlik: header, main, footer ortada dursun */
+header,
+main,
+footer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px 20px;
 }
 
 /* === HEADER === */
 header {
   display: flex;
-  justify-content: space-between; /* logo solda, nav sağda */
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  margin-top: 12px;
 }
 
 .logo span {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
+/* NAV */
 nav {
   position: relative;
 }
@@ -38,58 +51,195 @@ nav {
 
 .nav-links li a {
   text-decoration: none;
-  color: #222;
+  color: #111827;
   font-weight: 500;
-  transition: 0.2s;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .nav-links li a:hover {
-  color: #007bff;
+  color: #2563eb;
 }
 
-/* === HAMBURGER BUTONU (Mobil) === */
+.nav-links li a.active {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* HAMBURGER (mobil) */
 .nav-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   background: none;
   border: none;
   cursor: pointer;
 }
 
-/* === MAIN === */
+/* === ANA İÇERİK === */
 main {
-  margin-top: 30px;
-  padding-bottom: 50px;
+  flex: 1;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+/* Ortak sayfa kutusu */
+.page {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.page h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.page h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.page p {
+  margin-bottom: 12px;
+}
+
+.page ul {
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+/* === PROJELER === */
+.page-projects .project-card {
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  margin-top: 16px;
+}
+
+.project-card h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* === YETENEKLER === */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.skill-group {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.skill-group h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* === İLETİŞİM FORMU === */
+.contact-form {
+  margin-top: 18px;
+  max-width: 480px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font: inherit;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.contact-form button {
+  margin-top: 4px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.contact-form button:hover {
+  background: #1d4ed8;
+}
+
+.contact-form button:active {
+  transform: scale(0.97);
+}
+
+.form-message {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 /* === FOOTER === */
 footer {
-  margin-top: 40px;
   text-align: center;
   font-size: 14px;
-  color: #777;
+  color: #6b7280;
+  padding-bottom: 18px;
 }
 
-/* === MOBİL TASARIM — max-width 768px === */
+/* === MOBİL TASARIM (max 768px) === */
 @media (max-width: 768px) {
+  header {
+    align-items: center;
+  }
+
   .nav-links {
-    display: none; /* başta gizli */
+    display: none;
     flex-direction: column;
     gap: 10px;
-    background: #fff;
-    padding: 15px;
+    background: #ffffff;
+    padding: 12px 14px;
     position: absolute;
     right: 0;
-    top: 40px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    top: 36px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+    border-radius: 12px;
+    z-index: 10;
   }
 
   .nav-links.open {
-    display: flex; /* butona basınca gösterilecek */
+    display: flex;
   }
 
   .nav-toggle {
-    display: block; /* mobilde buton görünsün */
+    display: block;
+  }
+
+  .page {
+    padding: 18px 16px;
   }
 }
