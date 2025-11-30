@@ -1,14 +1,23 @@
-/* === GENEL AYARLAR === */
+/* === GENEL AYARLAR & TEMA === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --bg-main: #1b1a17;
+  --bg-card: #121212;
+  --bg-card-soft: #18181b;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #ff8303;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #eef2ff, #f9fafb);
-  color: #111827;
+  background: var(--bg-main);
+  color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -20,7 +29,7 @@ header,
 main,
 footer {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 16px 20px;
 }
@@ -31,11 +40,14 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .logo span {
   font-size: 24px;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 /* NAV */
@@ -45,26 +57,27 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   list-style: none;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #111827;
+  color: var(--text-muted);
   font-weight: 500;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s, transform 0.1s;
 }
 
 .nav-links li a:hover {
-  color: #2563eb;
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .nav-links li a.active {
-  color: #2563eb;
-  border-color: #2563eb;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* HAMBURGER (mobil) */
@@ -74,26 +87,28 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--text-main);
 }
 
 /* === ANA İÇERİK === */
 main {
   flex: 1;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 40px;
 }
 
 /* Ortak sayfa kutusu */
 .page {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px 28px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 26px 30px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .page h1 {
-  font-size: 28px;
-  margin-bottom: 12px;
+  font-size: 30px;
+  margin-bottom: 14px;
 }
 
 .page h2 {
@@ -104,20 +119,26 @@ main {
 
 .page p {
   margin-bottom: 12px;
+  color: var(--text-main);
 }
 
 .page ul {
-  margin-left: 20px;
+  margin-left: 22px;
   margin-bottom: 8px;
+}
+
+.page ul li {
+  margin-bottom: 4px;
 }
 
 /* === PROJELER === */
 .page-projects .project-card {
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 16px 18px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: var(--bg-card-soft);
   margin-top: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
 }
 
 .project-card h2 {
@@ -125,7 +146,21 @@ main {
   margin-bottom: 6px;
 }
 
+.project-card p {
+  font-size: 14px;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+  border-color: var(--accent);
+}
+
 /* === YETENEKLER === */
+.page-skills p {
+  color: var(--text-muted);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -134,15 +169,19 @@ main {
 }
 
 .skill-group {
-  background: #f9fafb;
-  border-radius: 12px;
+  background: var(--bg-card-soft);
+  border-radius: 14px;
   padding: 14px 16px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .skill-group h2 {
   font-size: 18px;
   margin-bottom: 8px;
+}
+
+.skill-group ul li {
+  font-size: 14px;
 }
 
 /* === İLETİŞİM FORMU === */
@@ -165,33 +204,41 @@ main {
 .form-group textarea {
   width: 100%;
   padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
   font: inherit;
   resize: vertical;
+  background: #020617;
+  color: var(--text-main);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 131, 3, 0.4);
 }
 
 .contact-form button {
   margin-top: 4px;
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 999px;
   border: none;
   font-weight: 600;
   cursor: pointer;
-  background: #2563eb;
-  color: white;
-  transition: background 0.2s, transform 0.1s;
+  background: var(--accent);
+  color: #111827;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.15s;
 }
 
 .contact-form button:hover {
-  background: #1d4ed8;
+  background: #ffa446;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form button:active {
@@ -206,8 +253,8 @@ main {
 /* === FOOTER === */
 footer {
   text-align: center;
-  font-size: 14px;
-  color: #6b7280;
+  font-size: 13px;
+  color: var(--text-muted);
   padding-bottom: 18px;
 }
 
@@ -221,13 +268,13 @@ footer {
     display: none;
     flex-direction: column;
     gap: 10px;
-    background: #ffffff;
+    background: var(--bg-card);
     padding: 12px 14px;
     position: absolute;
     right: 0;
-    top: 36px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
-    border-radius: 12px;
+    top: 40px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.7);
+    border-radius: 14px;
     z-index: 10;
   }
 
@@ -240,6 +287,6 @@ footer {
   }
 
   .page {
-    padding: 18px 16px;
+    padding: 20px 16px;
   }
 }
