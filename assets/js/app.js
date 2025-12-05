@@ -134,3 +134,62 @@ async function renderProjects() {
   grid.innerHTML = cardsHtml;
 }
 
+
+
+function renderSkills() {
+  appRoot.innerHTML = `
+    <section class="page page-skills">
+      <h1 class="skills-title">My Skills</h1>
+      <p class="skills-subtitle">
+        Günlük hayatta en çok kullandığım ve üzerine çalıştığım teknolojiler:
+      </p>
+
+      <div class="skills-grid-icons">
+
+        <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <!-- İstersen buraya img koyabilirsin -->
+            <img src="assets/img/html-5.png" alt="HTML5" />
+          </div>
+          <p class="skill-name">HTML5</p>
+        </div>
+
+        <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <img src="assets/img/css-3.png" alt="CSS3" />
+          </div>
+          <p class="skill-name">CSS3</p>
+        </div>
+
+         <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <img src="assets/img/java-script.png" alt="JavaScript" />
+          </div>
+          <p class="skill-name">JavaScript</p>
+        </div>
+
+        <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <img src="assets/img/python.png" alt="python" />
+          </div>
+          <p class="skill-name">Python / Ai</p>
+        </div>
+
+        <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <img src="assets/img/github.png" alt="Git" />
+          </div>
+          <p class="skill-name">Git & Github</p>
+        </div>
+
+        <div class="skill-card-icon">
+          <div class="skill-icon-box">
+            <img src="assets/img/database.png" alt="sql" />
+          </div>
+          <p class="skill-name">SQL</p>
+        </div>
+
+        </div>
+    </section>
+  `;
+}
