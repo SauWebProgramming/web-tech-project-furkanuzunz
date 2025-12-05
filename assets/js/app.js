@@ -30,6 +30,7 @@ async function loadProjects() {
     return []; // Hata olursa boş dizi döneriz
   }
 }
+
 function renderAbout() {
   appRoot.innerHTML = `
     <section class="page page-about">
@@ -71,3 +72,65 @@ function renderAbout() {
     </section>
   `;
 }
+
+
+// Projelerim sayfası - Figma tarzı "My Works" görünüm
+async function renderProjects() {
+  // İlk yüklenirken iskelet
+  appRoot.innerHTML = `
+    <section class="page page-projects">
+      <h1 class="projects-title">My Works</h1>
+      <p class="projects-subtitle">
+        Üzerinde çalıştığım ve beni en çok geliştiren projelerden bazıları:
+      </p>
+
+      <div class="projects-grid" id="projects-grid">
+        <p class="projects-loading">Projeler yükleniyor...</p>
+      </div>
+    </section>
+  `;
+
+  const projects = await loadProjects();
+  const grid = document.getElementById("projects-grid");
+
+  // Hata / boş durum
+  if (!projects || projects.length === 0) {
+    grid.innerHTML = `
+      <p class="projects-empty">
+        Şu anda listelenecek proje bulunamadı.
+      </p>
+    `;
+    return;
+  }
+
+  // Her proje için kart oluştur
+  const cardsHtml = projects
+  .map((project) => {
+    // link varsa buton, yoksa boş string
+    const buttonHtml = project.link
+      ? `<a href="${project.link}" class="project-btn" target="_blank" rel="noopener noreferrer">
+           See more →
+         </a>`
+      : "";
+
+    return `
+      <article class="project-card">
+        <div class="project-card-header">
+          <h2 class="project-title">${project.title}</h2>
+          <p class="project-tags">${project.tags.join(" • ")}</p>
+        </div>
+
+        <p class="project-desc">
+          ${project.description}
+        </p>
+
+        ${buttonHtml}
+      </article>
+    `;
+  })
+  .join("");
+
+
+  grid.innerHTML = cardsHtml;
+}
+
