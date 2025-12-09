@@ -382,3 +382,53 @@ footer {
     padding: 20px 16px;
   }
 }
+
+
+/* === HAKKIMDA (HERO TASARIMI) === */
+
+/* Sadece about sayfasında kart efektini biraz farklı kullanacağız */
+.page-about {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+  gap: 40px;
+  align-items: center;
+  background: #5e5454;
+  border-radius: 22px;
+  padding: 40px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.about-role-label {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.about-name {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.about-title {
+  font-size: 18px;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  margin-bottom: 16px;
+}
+
+.about-short {
+  font-size: 15px;
+  max-width: 440px;
+} 
