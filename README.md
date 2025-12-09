@@ -68,6 +68,7 @@ GitHub Pages
     └── img/
         └── (ikonlar, profil fotoğrafı)
 
+
 🔁 SPA Router Mantığı
 
 Kullanıcı menüde bir sayfaya tıkladığında URL şu forma dönüşür:
