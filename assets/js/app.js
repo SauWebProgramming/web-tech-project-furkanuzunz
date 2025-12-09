@@ -317,3 +317,59 @@ function renderContact() {
   });
 }
 
+
+
+// === NAVDA AKTİF LİNK ===
+function setActiveNav(hash) {
+  navLinkEls.forEach((link) => {
+    if (link.getAttribute("href") === hash) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+}
+
+// === ROUTER ===
+function router() {
+  let hash = window.location.hash;
+
+  if (!hash) {
+    hash = "#/about";
+  }
+
+  switch (hash) {
+    case "#/about":
+      renderAbout();
+      break;
+    case "#/projects":
+      renderProjects();
+      break;
+    case "#/skills":
+      renderSkills();
+      break;
+    case "#/contact":
+      renderContact();
+      break;
+    default:
+      renderAbout();
+      hash = "#/about";
+      break;
+  }
+
+  setActiveNav(hash);
+}
+
+// Hash değişince router'ı çalıştır
+window.addEventListener("hashchange", router);
+
+// Sayfa ilk açıldığında
+window.addEventListener("DOMContentLoaded", () => {
+  if (!window.location.hash) {
+    window.location.hash = "#/about";
+  } else {
+    router();
+  }
+});
+
+
