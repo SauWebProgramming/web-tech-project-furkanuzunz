@@ -274,3 +274,69 @@ main {
   font-size: 14px;
 }
 
+/* === İLETİŞİM FORMU === */
+.contact-form {
+  margin-top: 18px;
+  max-width: 480px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  font: inherit;
+  resize: vertical;
+  background: #020617;
+  color: var(--text-main);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 131, 3, 0.4);
+}
+
+.contact-form button {
+  margin-top: 4px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent);
+  color: #111827;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.15s;
+}
+
+.contact-form button:hover {
+  background: #ffa446;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form button:active {
+  transform: scale(0.97);
+}
+
+.form-message {
+  margin-top: 8px;
+  font-size: 14px;
+}
