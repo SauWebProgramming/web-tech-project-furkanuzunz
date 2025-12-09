@@ -101,7 +101,7 @@ Tüm bu sayfalar, tek bir HTML dosyası üzerinde **JavaScript ile dinamik olara
     └── img/
         └── ...         # Skill ikonları, profil fotoğrafı vb.
 
-
+```
 ## 🧭 SPA Router Mantığı
 
 Projede geleneksel çok sayfalı yapı yerine, **hash tabanlı bir SPA router** kullanılmıştır.
