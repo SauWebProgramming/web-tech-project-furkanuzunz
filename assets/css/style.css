@@ -511,3 +511,24 @@ footer {
     padding: 16px 12px 0;
   }
 }
+
+
+/* === SKILLS EKRANI (Figma benzeri) === */
+
+.page-skills {
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.skills-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
