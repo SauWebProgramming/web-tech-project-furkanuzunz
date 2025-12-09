@@ -486,3 +486,28 @@ footer {
   color: var(--text-main);
   max-width: 650px;
 }
+
+/* Mobilde hero düzeni */
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    padding: 24px 18px 20px;
+  }
+
+  .about-hero-right {
+    order: -1; /* foto yukarı gelsin istersen bunu kaldırabilirsin */
+  }
+
+  .about-photo-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-name {
+    font-size: 32px;
+  }
+
+  .about-bottom {
+    padding: 16px 12px 0;
+  }
+}
