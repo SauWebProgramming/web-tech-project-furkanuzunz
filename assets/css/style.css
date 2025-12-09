@@ -575,3 +575,28 @@ footer {
     background: linear-gradient(145deg, #bdbde5, #1a1a1e);
 
 }
+
+/* Eğer img kullanırsan */
+.skill-icon-box img {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+/* Şimdilik yazı ile ikon görünümü */
+.skill-icon-text {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+/* Kart altındaki isim */
+.skill-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+  
+@media (max-width: 768px) {
+  .skill-card-icon {
+    min-width: 130px;
+  }
+}
