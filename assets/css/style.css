@@ -340,3 +340,11 @@ main {
   margin-top: 8px;
   font-size: 14px;
 }
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-bottom: 18px;
+}
