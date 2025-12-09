@@ -532,3 +532,11 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Kartların bulunduğu satır */
+.skills-grid-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+  margin-top: 10px;
+}
