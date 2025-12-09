@@ -195,3 +195,125 @@ function renderSkills() {
 }
 
 
+function renderContact() {
+  appRoot.innerHTML = `
+    <section class="page page-contact">
+      <!-- Üst kısım: solda logo/metin, sağda iletişim bilgilerim -->
+      <div class="contact-layout">
+        <div class="contact-brand">
+          <span class="contact-logo">&lt;/Furkan&gt;</span>
+          <p class="contact-text">
+            Eğer projelerim ilginizi çektiyse veya bir iş / proje fikriniz varsa,
+            benimle iletişime geçmekten çekinmeyin. Yeni fikirler, iş birlikleri ve
+            yarışma/proje ekipleri için her zaman açığım.
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <h2>Contacts</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon">✉️</span>
+              <div>
+                <span class="contact-label">E-posta</span>
+                <a href="mailto:furkan@example.com">furkan.uzun4@ogr.sakarya.edu.tr</a>
+              </div>
+            </li>
+
+            <li>
+              <span class="contact-icon">💻</span>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/furkanuzunz" target="_blank" rel="noopener noreferrer">
+                  github.com/furkanuzunz
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <span class="contact-icon">🔗</span>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/furkanuzunz" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/furkanuzunz
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <span class="contact-icon">📷</span>
+              <div>
+                <span class="contact-label">Instagram</span>
+                <a href="https://www.instagram.com/furknuzn_" target="_blank" rel="noopener noreferrer">
+                  @furknuzn_
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Alt kısım: bizim form (validasyonlu) -->
+      <div class="contact-form-wrapper">
+        <h2>Mesaj Gönder</h2>
+        <p class="contact-form-subtitle">
+          Merhaba. Mesajınızı gönderdikten sonra doğrulama sonucunu sayfa üzerinde göreceksiniz.
+        </p>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Ad Soyad</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mesaj</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          <button type="submit">Gönder</button>
+          <p id="form-message" class="form-message"></p>
+        </form>
+      </div>
+    </section>
+  `;
+  // Form doğrulama JS (öncekini aynen koruyoruz)
+  const form = document.getElementById("contact-form");
+  const messageEl = document.getElementById("form-message");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      messageEl.textContent = "Lütfen tüm alanları doldurun.";
+      messageEl.style.color = "red";
+      return;
+    }
+
+    if (!email.includes("@")) {
+      messageEl.textContent = "Lütfen geçerli bir e-posta adresi girin.";
+      messageEl.style.color = "red";
+      return;
+    }
+
+    if (message.length < 10) {
+      messageEl.textContent = "Mesajınız en az 10 karakter olmalı.";
+      messageEl.style.color = "red";
+      return;
+    }
+
+    messageEl.textContent = "Mesajınız alındı, teşekkürler!";
+    messageEl.style.color = "green";
+    form.reset();
+  });
+}
+

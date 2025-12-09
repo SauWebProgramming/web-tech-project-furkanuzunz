@@ -245,3 +245,32 @@ main {
   }
 }
 
+
+/* === YETENEKLER === */
+.page-skills p {
+  color: var(--text-muted);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.skill-group {
+  background: var(--bg-card-soft);
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.skill-group h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.skill-group ul li {
+  font-size: 14px;
+}
+
