@@ -129,7 +129,7 @@ Projede geleneksel çok sayfalı yapı yerine, **hash tabanlı bir SPA router** 
 
 ```js
 document.getElementById("app-root").innerHTML = "...";
-
+```
 5.Bu sayede kullanıcı farklı sayfalara geçerken tam sayfa yenilenmesi olmaz, yalnızca ilgili içerik güncellenir.
 Böylece uygulama SPA (Single Page Application) gibi davranır.
 
