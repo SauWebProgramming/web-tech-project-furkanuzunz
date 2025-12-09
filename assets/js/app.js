@@ -216,7 +216,7 @@ function renderContact() {
               <span class="contact-icon">✉️</span>
               <div>
                 <span class="contact-label">E-posta</span>
-                <a href="mailto:furkan@example.com">furkan.uzun4@ogr.sakarya.edu.tr</a>
+                <a href="mailto:furkan.uzun4@ogr.sakarya.edu.tr">furkan.uzun4@ogr.sakarya.edu.tr</a>
               </div>
             </li>
 
