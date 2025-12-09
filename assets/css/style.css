@@ -464,3 +464,25 @@ footer {
   object-fit: cover;
   border: 3px solid #facc15;
 }
+
+/* Alt kısımdaki hikaye alanı */
+.about-bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 18px 20px 0;
+}
+
+.about-bottom-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.about-bottom-text {
+  font-size: 14px;
+  color: var(--text-main);
+  max-width: 650px;
+}
