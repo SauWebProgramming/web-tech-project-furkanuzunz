@@ -182,7 +182,5 @@ Bu URL üzerinden proje canlı olarak sunulur.
 ## GitHub Bilgileri
 
 GitHub Repository:
-(buraya kendi repo linkini yazacaksın)
 
 GitHub Pages Canlı Link:
-(buraya canlı linkini ekleyeceksin)
