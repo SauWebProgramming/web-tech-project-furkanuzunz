@@ -182,5 +182,7 @@ Bu URL üzerinden proje canlı olarak sunulur.
 ## GitHub Bilgileri
 
 GitHub Repository:
+https://github.com/SauWebProgramming/web-tech-project-furkanuzunz
 
 GitHub Pages Canlı Link:
+
