@@ -3,39 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Burada sayfanın başlığını belirledim. Tarayıcı sekmesinde görünen isim. -->
   <title>Furkan Uzun | Portfolyo</title>
 
+  <!-- CSS dosyamı bağladığım kısım. Tüm tasarım style.css üzerinden geliyor. -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
+
   <header>
     <div class="logo">
+      <!-- Logoyu sadece ismimden oluşturmayı tercih ettim. Minimal tasarım. -->
       <span>Furkan Uzun</span>
     </div>
 
     <nav>
       <ul class="nav-links">
-        <!-- DİKKAT: href'ler tam olarak böyle olmalı -->
+        <!-- 
+          Menümde SPA (Single Page Application) yapısını kullanıyorum. 
+          Bu yüzden href'ler "#/about", "#/skills" gibi hash tabanlı yapıda.
+          JavaScript router fonksiyonu bu hash'lere göre sayfanın içeriğini değiştiriyor.
+        -->
         <li><a href="#/about">Hakkımda</a></li>
         <li><a href="#/projects">Projelerim</a></li>
         <li><a href="#/skills">Yetenekler</a></li>
         <li><a href="#/contact">İletişim</a></li>
       </ul>
 
+      <!-- 
+        Mobil görünümde menüyü açıp kapatabilmek için hamburger butonu ekledim.
+        (İstersem JS ile aktif hale getirebilirim.)
+      -->
       <button class="nav-toggle" aria-label="Menüyü Aç/Kapat">
         ☰
       </button>
     </nav>
   </header>
 
+  <!-- 
+    Tüm SPA yapısında sayfa içeriğini bu <main> alanına yazdırıyorum.
+    Yani herhangi bir menüye tıklanınca JavaScript burayı dolduruyor.
+  -->
   <main id="app-root">
     <!-- JS burayı dolduracak -->
   </main>
 
   <footer>
+    <!-- Sayfanın alt kısmında telif bilgisi. -->
     <p>© 2025 Furkan Uzun. Tüm hakları saklıdır.</p>
   </footer>
 
+  <!-- 
+    Tüm JS kodlarımı içeren dosya. 
+    "defer" koymamın sebebi: HTML yüklendikten sonra çalışması için.
+    Bu da daha doğru bir yükleme sırası sağlıyor.
+  -->
   <script src="assets/js/app.js" defer></script>
+
 </body>
 </html>
