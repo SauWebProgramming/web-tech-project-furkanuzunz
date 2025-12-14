@@ -1,19 +1,29 @@
-/* === GENEL AYARLAR & TEMA === */
+/* ============================================================
+   GENEL AYARLAR & TEMA
+   Bu kısımda tüm projeye ait reset ve tema renklerimi tanımlıyorum.
+   ============================================================ */
+
+/* Tüm elemanlarda margin/padding sıfırlayıp box modelini düzeltiyorum. 
+   Böylece tarayıcıların varsayılan boşluklarından kurtuluyorum. */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* CSS değişkenleri ile (custom properties) tema renklerimi merkezi bir noktada tutuyorum.
+   İleride renk değiştirmem gerekirse tek yerden yönetebilmek için bu yapıyı kullandım. */
 :root {
-  --bg-main: #1b1a17;
-  --bg-card: #121212;
-  --bg-card-soft: #18181b;
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
-  --accent: #ff8303;
+  --bg-main: #1b1a17;         /* Sayfanın ana arka plan rengi (dark) */
+  --bg-card: #121212;         /* Kartlar için koyu arka plan */
+  --bg-card-soft: #18181b;    /* Proje/skill kartları için daha yumuşak ton */
+  --text-main: #f9fafb;       /* Ana yazı rengi (açık) */
+  --text-muted: #9ca3af;      /* Açıklama/ikinci seviye yazılar için soluk ton */
+  --accent: #ff8303;          /* Vurgu (accent) rengim: turuncu */
 }
 
+/* Body seviyesinde temel font, arka plan ve dikey hizalamayı ayarlıyorum. 
+   Flex column ile header–main–footer'ı dikey eksende sıralıyorum. */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg-main);
@@ -24,7 +34,8 @@ body {
   flex-direction: column;
 }
 
-/* Ortak genişlik: header, main, footer ortada dursun */
+/* Header, main ve footer'ı sayfa ortasında sabit bir genişlikte tutuyorum.
+   Böylece büyük ekranlarda içerik çok yayılmıyor, daha derli toplu duruyor. */
 header,
 main,
 footer {
@@ -34,53 +45,62 @@ footer {
   padding: 16px 20px;
 }
 
-/* === HEADER === */
+/* ============================================================
+   HEADER & NAVİGASYON
+   ============================================================ */
+
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;                           /* Logo ve menüyü yan yana almak için flex kullanıyorum. */
+  justify-content: space-between;          /* Logo solda, menü sağda dursun. */
+  align-items: center;                     /* Dikeyde hizalama */
   margin-top: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3); /* Header ile içerik arasında ince bir ayırıcı çizgi. */
 }
 
+/* Logo kısmında adımın biraz büyük ve vurgulu görünmesini istedim. */
 .logo span {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
 
-/* NAV */
+/* NAV container */
 nav {
-  position: relative;
+  position: relative; /* Mobil menü açılınca absolute konumlandırabilmek için relative yaptım. */
 }
 
+/* Menüde <ul> üzerinden yatay liste kullanıyorum. */
 .nav-links {
   display: flex;
-  gap: 24px;
-  list-style: none;
+  gap: 24px;        /* Menü elemanları arasındaki boşluk. */
+  list-style: none; /* Madde işaretlerini kaldırıyorum. */
 }
 
+/* Menü linklerinin görünümü */
 .nav-links li a {
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 500;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;                          /* Altına çizgi efekti verebilmek için boşluk. */
+  border-bottom: 2px solid transparent;         /* Hover ve active durumda kullanacağım alt çizgi. */
   transition: color 0.2s, border-color 0.2s, transform 0.1s;
 }
 
+/* Üzerine gelindiğinde turuncu renge dönsün ve hafif yukarı çıksın istedim. */
 .nav-links li a:hover {
   color: var(--accent);
   transform: translateY(-1px);
 }
 
+/* Aktif sayfayı göstermek için altta turuncu çizgi ve turuncu yazı kullanıyorum. */
 .nav-links li a.active {
   color: var(--accent);
   border-color: var(--accent);
 }
 
-/* HAMBURGER (mobil) */
+/* Mobilde görünen hamburger butonu.
+   Desktop görünümünde gizli, media query altında görünür yapıyorum. */
 .nav-toggle {
   display: none;
   font-size: 26px;
@@ -90,19 +110,23 @@ nav {
   color: var(--text-main);
 }
 
-/* === ANA İÇERİK === */
+/* ============================================================
+   ANA İÇERİK (MAIN)
+   ============================================================ */
+
 main {
-  flex: 1;
+  flex: 1;                  /* Footer'ın sayfanın en altına gitmesini sağlıyorum. */
   padding-top: 20px;
   padding-bottom: 40px;
 }
 
-/* Ortak sayfa kutusu */
+/* Ortak sayfa kart yapısı: Hakkımda, Projeler, Skills, Contact gibi sayfa bölümlerinin 
+   temel görünümünü bu sınıf üzerinden veriyorum. */
 .page {
   background: var(--bg-card);
-  border-radius: 20px;
+  border-radius: 20px;                                /* Kart köşelerini yumuşatarak modern görünüm. */
   padding: 26px 30px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);        /* Koyu tema ile uyumlu derin gölge. */
   border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
@@ -131,17 +155,19 @@ main {
   margin-bottom: 4px;
 }
 
-/* === PROJELER === */
-/* === MY WORKS (Projelerim) === */
+/* ============================================================
+   PROJELER (MY WORKS)
+   Bu bölümde JSON'dan çektiğim projeleri kartlar halinde gösteriyorum.
+   ============================================================ */
 
 .page-projects {
-  text-align: center;
+  text-align: center; /* Başlık ve açıklamayı ortalıyorum. Kartlar yine flex ile ortalanıyor. */
 }
 
 .projects-title {
   font-size: 26px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent);  /* My Works başlığını öne çıkarmak için turuncu kullandım. */
   margin-bottom: 6px;
 }
 
@@ -151,22 +177,22 @@ main {
   margin-bottom: 22px;
 }
 
-/* Kartların durduğu alan */
+/* Kartların bulunduğu alan: JSON'dan gelen her proje bir .project-card olarak burada yer alıyor. */
 .projects-grid {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;    /* Ekran daraldıkça alt satıra geçebilsin. */
   gap: 22px;
   justify-content: center;
 }
 
-/* Yükleniyor / boş mesajları */
+/* Yükleniyor / boş durum mesajları, fetch işlemi sırasında kullanıcıya bilgi vermek için. */
 .projects-loading,
 .projects-empty {
   font-size: 14px;
   color: var(--text-muted);
 }
 
-/* Her bir proje kartı */
+/* Her bir proje kartının görünümü. */
 .project-card {
   background: var(--bg-card-soft);
   border-radius: 20px;
@@ -181,6 +207,8 @@ main {
   gap: 10px;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
 }
+
+/* Hover'da kartı hafif yukarı taşımamın sebebi, kartlara interaktif bir his kazandırmak. */
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
@@ -191,6 +219,7 @@ main {
   margin-bottom: 4px;
 }
 
+/* Proje başlıklarını turuncu yaparak dikkat çekici hale getiriyorum. */
 .project-title {
   font-size: 18px;
   font-weight: 600;
@@ -198,6 +227,7 @@ main {
   margin-bottom: 4px;
 }
 
+/* Proje etiketleri için küçük, uppercase ve harf aralığı açılmış bir stil kullandım. */
 .project-tags {
   font-size: 12px;
   text-transform: uppercase;
@@ -208,15 +238,16 @@ main {
 .project-desc {
   font-size: 14px;
   color: var(--text-main);
-  flex: 1;
+  flex: 1; /* Buton alta doğru sabit kalsın diye açıklamaya esnek alan veriyorum. */
 }
 
-/* See more butonu */
+/* See more butonu, aslında a etiketi olarak kullandığım ama buton gibi görünen yapı. 
+   Proje detay linkini JSON'dan alıp bu buton üzerinden yönlendiriyorum. */
 .project-btn {
   align-self: flex-start;
   margin-top: 8px;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 999px;         /* Tam yuvarlak köşe ile "pill" buton görünümü. */
   border: none;
   font-size: 13px;
   font-weight: 500;
@@ -224,7 +255,7 @@ main {
   background: #111827;
   color: var(--text-main);
   transition: background 0.2s, transform 0.1s, box-shadow 0.15s;
-   display: inline-block;
+  display: inline-block;        /* Hem <button> hem <a> ile uyumlu olsun diye inline-block. */
   text-decoration: none;
 }
 
@@ -238,15 +269,19 @@ main {
   transform: scale(0.96);
 }
 
-/* Mobilde kartlar daha rahat dizilsin */
+/* Mobilde proje kartlarının genişliğini %100'e kadar açıyorum.
+   Böylece küçük ekranda tek sütun çalışıyor. */
 @media (max-width: 768px) {
   .project-card {
     max-width: 100%;
   }
 }
 
-
-/* === YETENEKLER === */
+/* ============================================================
+   ESKİ SKILLS YAPISI (kullanmadığım grid skills)
+   Bu kısım gerekiyorsa kullanılacak ama şimdilik aktif değil.
+   Tutmamın sebebi, ileride farklı bir skills layout'u denemek isteyebilirim.
+   ============================================================ */
 .page-skills p {
   color: var(--text-muted);
 }
@@ -274,7 +309,10 @@ main {
   font-size: 14px;
 }
 
-/* === İLETİŞİM FORMU === */
+/* ============================================================
+   İLETİŞİM FORMU (FORMUN GENEL STİLLERİ)
+   Bu kısım, contact sayfasının alt tarafındaki form için.
+   ============================================================ */
 .contact-form {
   margin-top: 18px;
   max-width: 480px;
@@ -290,6 +328,7 @@ main {
   margin-bottom: 4px;
 }
 
+/* Input ve textarea'lara koyu arka plan veriyorum ve turuncu focus efektiyle vurguluyorum. */
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -307,7 +346,6 @@ main {
   color: var(--text-muted);
 }
 
-
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -315,6 +353,7 @@ main {
   box-shadow: 0 0 0 2px rgba(255, 131, 3, 0.4);
 }
 
+/* Formun Gönder butonu için turuncu accent rengi kullanıyorum. */
 .contact-form button {
   margin-top: 4px;
   padding: 8px 20px;
@@ -336,12 +375,15 @@ main {
   transform: scale(0.97);
 }
 
+/* Form validasyon mesajı için alan. */
 .form-message {
   margin-top: 8px;
   font-size: 14px;
 }
 
-/* === FOOTER === */
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
   text-align: center;
   font-size: 13px;
@@ -349,13 +391,16 @@ footer {
   padding-bottom: 18px;
 }
 
-
-/* === MOBİL TASARIM (max 768px) === */
+/* ============================================================
+   GENEL MOBİL TASARIM
+   Özellikle nav ve page padding'lerini mobilde uyarlıyorum.
+   ============================================================ */
 @media (max-width: 768px) {
   header {
     align-items: center;
   }
 
+  /* Mobilde nav-links varsayılan olarak gizli, hamburger ile açılıyor. */
   .nav-links {
     display: none;
     flex-direction: column;
@@ -383,10 +428,13 @@ footer {
   }
 }
 
+/* ============================================================
+   HAKKIMDA (ABOUT) – HERO TASARIMI
+   Bu sayfada normal .page kart efektini kaldırıp farklı bir hero layout kullandım.
+   ============================================================ */
 
-/* === HAKKIMDA (HERO TASARIMI) === */
-
-/* Sadece about sayfasında kart efektini biraz farklı kullanacağız */
+/* About sayfasında .page'in kart görünümünü devre dışı bırakıyorum.
+   Çünkü kendi hero kutumu (.about-hero) kullanıyorum. */
 .page-about {
   background: transparent;
   border: none;
@@ -394,18 +442,21 @@ footer {
   padding: 0;
 }
 
+/* Ana hero bloğu: Sol tarafta metin, sağda fotoğraf. 
+   Grid yapısını iki kolonlu hero için kullandım. */
 .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
   gap: 40px;
   align-items: center;
-  background: #5e5454;
+  background: #5e5454;  /* Farklı bir arka plan rengiyle hero alanını biraz öne çıkarıyorum. */
   border-radius: 22px;
   padding: 40px;
   border: 1px solid rgba(148, 163, 184, 0.35);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
+/* Pozisyon etiketim (örneğin: Bilgi Sistemleri Müh. Öğrencisi) */
 .about-role-label {
   font-size: 14px;
   letter-spacing: 0.12em;
@@ -414,6 +465,7 @@ footer {
   margin-bottom: 8px;
 }
 
+/* İsmimi büyük ve turuncu vurgulu gösteriyorum. */
 .about-name {
   font-size: 42px;
   font-weight: 800;
@@ -421,6 +473,7 @@ footer {
   margin-bottom: 6px;
 }
 
+/* Alt başlık: Web & AI Developer gibi rolüm. */
 .about-title {
   font-size: 18px;
   font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
@@ -428,12 +481,13 @@ footer {
   margin-bottom: 16px;
 }
 
+/* Kısa açıklama metninin satır uzunluğunu kontrol etmek için max-width kullanıyorum. */
 .about-short {
   font-size: 15px;
   max-width: 440px;
-} 
+}
 
-/* Sağ taraftaki foto alanı */
+/* Sağ taraftaki görsel alanı: fotoğraf + blob etkisi için wrapper. */
 .about-hero-right {
   display: flex;
   justify-content: center;
@@ -445,6 +499,7 @@ footer {
   height: 260px;
 }
 
+/* Fotoğrafın arkasındaki organik blob şeklini border-radius ile oluşturuyorum. */
 .about-photo-blob {
   position: absolute;
   inset: 10px;
@@ -453,6 +508,7 @@ footer {
   transform: rotate(-12deg);
 }
 
+/* Fotoğrafı yuvarlak yaparak blob'un üstüne oturtuyorum. */
 .about-photo-img {
   position: absolute;
   inset: 22px;
@@ -462,10 +518,10 @@ footer {
   max-height: calc(100% - 44px);
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #facc15;
+  border: 3px solid #facc15; /* Sarı çerçeve ile fotoğrafın sınırını belirginleştiriyorum. */
 }
 
-/* Alt kısımdaki hikaye alanı */
+/* Alt kısımda ekstra açıklama/not için küçük bir layout. */
 .about-bottom {
   display: flex;
   align-items: flex-start;
@@ -474,6 +530,7 @@ footer {
   padding: 18px 20px 0;
 }
 
+/* Turuncu yuvarlak badge (sol ikon gibi). */
 .about-bottom-badge {
   width: 40px;
   height: 40px;
@@ -487,7 +544,7 @@ footer {
   max-width: 650px;
 }
 
-/* Mobilde hero düzeni */
+/* Mobilde hero düzenini tek kolona düşürüyorum. Fotoğrafı istersen yukarı da taşıyabilirim. */
 @media (max-width: 768px) {
   .about-hero {
     grid-template-columns: 1fr;
@@ -495,7 +552,7 @@ footer {
   }
 
   .about-hero-right {
-    order: -1; /* foto yukarı gelsin istersen bunu kaldırabilirsin */
+    order: -1; /* Fotoğrafı mobile görünümde üstte göstermek için -1 yaptım. */
   }
 
   .about-photo-wrapper {
@@ -512,8 +569,10 @@ footer {
   }
 }
 
-
-/* === SKILLS EKRANI (Figma benzeri) === */
+/* ============================================================
+   SKILLS EKRANI (Figma benzeri özel layout)
+   Burada My Skills başlığı ve ikonlu kart yapısını kuruyorum.
+   ============================================================ */
 
 .page-skills {
   text-align: center;
@@ -532,7 +591,7 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Kartların bulunduğu satır */
+/* Kartların bulunduğu satır: HTML5, CSS3, JS, SCSS, Git, SQL vb. */
 .skills-grid-icons {
   display: flex;
   flex-wrap: wrap;
@@ -541,7 +600,7 @@ footer {
   margin-top: 10px;
 }
 
-/* Her bir skill kartı */
+/* Her bir skill kartını tek tek kutu halinde gösteriyorum. */
 .skill-card-icon {
   background: var(--bg-card-soft);
   border-radius: 20px;
@@ -557,13 +616,14 @@ footer {
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
 }
 
+/* Hover etkisi: skill kartlarını da projelerle uyumlu şekilde interaktif hale getiriyorum. */
 .skill-card-icon:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
   box-shadow: 0 18px 50px rgba(255, 131, 3, 0.25);
-} 
+}
 
-/* İkon kutusu */
+/* İkon kutusu: ister gerçek ikon, ister metin kullanabileyim diye ortasında alignment var. */
 .skill-icon-box {
   width: 80px;
   height: 80px;
@@ -572,24 +632,24 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-    background: linear-gradient(145deg, #bdbde5, #1a1a1e);
-
+  /* Küçük gradient ile daha modern bir his vermek istedim. */
+  background: linear-gradient(145deg, #bdbde5, #1a1a1e);
 }
 
-/* Eğer img kullanırsan */
+/* Eğer gerçek SVG/PNG ikon kullanırsam boyutlarını sınırlıyorum. */
 .skill-icon-box img {
   max-width: 70%;
   max-height: 70%;
 }
 
-/* Şimdilik yazı ile ikon görünümü */
+/* İkon olarak metin gösterdiğim durumlarda, yazının belirgin olması için. */
 .skill-icon-text {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.04em;
 }
 
-/* Kart altındaki isim */
+/* Kart altındaki skill adı. */
 .skill-name {
   font-size: 15px;
   font-weight: 500;
@@ -601,8 +661,10 @@ footer {
   }
 }
 
-
-/* === İLETİŞİM SAYFASI === */
+/* ============================================================
+   İLETİŞİM SAYFASI (CONTACT LAYOUT)
+   Üstte iletişim bilgilerim, altta form olacak şekilde iki blok kullandım.
+   ============================================================ */
 
 .page-contact {
   background: transparent;
@@ -611,7 +673,9 @@ footer {
   padding: 0;
 }
 
-/* Üstteki iki kolon: logo + text  |  contact bilgiler */
+/* Üstte iki kolonlu layout:
+   - Solda </Furkan> ve kısa tanıtım metni
+   - Sağda mail, GitHub, LinkedIn, Instagram bilgileri. */
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
@@ -624,8 +688,7 @@ footer {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
-
-/* Sol blok: </Furkan> + kısa metin */
+/* Sol blok: logo ve açıklama metni */
 .contact-brand {
   display: flex;
   flex-direction: column;
@@ -640,20 +703,20 @@ footer {
     "Courier New", monospace;
 }
 
-
 .contact-text {
   font-size: 14px;
   color: var(--text-main);
   max-width: 380px;
 }
 
-/* Sağ blok: Contacts listesi */
+/* Sağ blok: Contacts başlığı ve liste */
 .contact-info h2 {
   font-size: 20px;
   margin-bottom: 10px;
   color: var(--accent);
 }
 
+/* İletişim listesi: her satır ikon + metin yapısında. */
 .contact-list {
   list-style: none;
   display: flex;
@@ -667,7 +730,7 @@ footer {
   gap: 10px;
 }
 
-
+/* Yuvarlak ikon alanı. */
 .contact-icon {
   width: 32px;
   height: 32px;
@@ -678,6 +741,7 @@ footer {
   justify-content: center;
 }
 
+/* Etiket (Mail, GitHub, LinkedIn vs.) */
 .contact-label {
   font-size: 12px;
   letter-spacing: 0.14em;
@@ -687,6 +751,7 @@ footer {
   margin-bottom: 2px;
 }
 
+/* Linklere hover efekti vererek interaktif hale getiriyorum. */
 .contact-list a {
   font-size: 14px;
   color: var(--text-main);
@@ -697,7 +762,7 @@ footer {
   color: var(--accent);
 }
 
-/* Alt blok: form kutusu */
+/* Alt blok: form kutusunun genel kart yapısı. */
 .contact-form-wrapper {
   margin-top: 18px;
   background: var(--bg-card);
@@ -718,7 +783,7 @@ footer {
   margin-bottom: 12px;
 }
 
-/* Mobil görünüm */
+/* Mobil ekranda contact layout'unu tek kolona düşürüyorum. */
 @media (max-width: 768px) {
   .contact-layout {
     grid-template-columns: 1fr;
