@@ -185,4 +185,5 @@ GitHub Repository:
 https://github.com/SauWebProgramming/web-tech-project-furkanuzunz
 
 GitHub Pages Canlı Link:
+sauwebprogramming.github.io/web-tech-project-furkanuzunz/
 
