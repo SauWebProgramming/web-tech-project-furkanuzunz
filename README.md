@@ -5,7 +5,7 @@
 ## Öğrenci Bilgisi
 
 **Ad Soyad:** Furkan Uzun  
-**Öğrenci No:** (buraya kendi numaranı yazacaksın)  
+**Öğrenci No:** b231200003  
 **Ders:** ISE-201 Web Teknolojileri  
 
 ---
@@ -159,25 +159,6 @@ Menüden sayfalar arasında geçiş yapabilirsin
 Projeler bölümündeki JSON’dan gelen verileri görebilirsin
 
 İletişim formu doğrulamasını test edebilirsin
-
-## GitHub Pages Üzerinde Yayına Alma
-
-GitHub Pages ile projeyi canlıya almak için:
-
-1.Repository ayarlarına gir (Settings)
-
-2.Sol menüden Pages bölümüne tıkla
-
-3."Branch" alanını:
-
-main (veya master)
-
-/root
-olarak ayarla
-
-4.Kaydet → GitHub birkaç dakika içinde sana bir URL verecek
-
-Bu URL üzerinden proje canlı olarak sunulur.
 
 ## GitHub Bilgileri
 
